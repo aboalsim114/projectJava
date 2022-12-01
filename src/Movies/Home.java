@@ -20,7 +20,9 @@ public class Home extends javax.swing.JFrame  {
     public Home() {
         initComponents();
         SetIcon();
-       connection conn = new connection();
+        ConnectionManager connection = new ConnectionManager();
+        connection.getConnection();
+   
     }
     
     
