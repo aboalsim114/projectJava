@@ -4,6 +4,8 @@
  */
 package Movies;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,13 +15,15 @@ import javax.swing.JOptionPane;
 
 
 public class ConnectionManager {
-
    private static String  user = "root";
    private static String password = "";
    private static String url = "jdbc:mysql://localhost:3306/projectjava";
     private static Connection con;
-  
+    private static  ResultSet rs;
 
+    
+    
+   
 public static Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -29,7 +33,7 @@ public static Connection getConnection() {
             System.out.println("connected to the database");
 
                }
-              
+                
                else{
                System.out.println("failed to connect to the database");
 
@@ -44,12 +48,9 @@ public static Connection getConnection() {
         return con;
     }
     
-      
-    
-    
-    
-    
+   }
+ 
 
-}
+
 
 
