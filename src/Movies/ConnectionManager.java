@@ -13,19 +13,28 @@ import javax.swing.JOptionPane;
 
 
 public class ConnectionManager {
-    private static String url = "jdbc:mysql://localhost/projectjava";    
-    private static String driverName = "com.mysql.cj.jdbc.Driver";   
-    private static String username = "root";   
-    private static String password = "";
+
+   private static String  user = "root";
+   private static String password = "";
+   private static String url = "jdbc:mysql://localhost:3306/projectjava";
     private static Connection con;
-    private static String urlstring;
+  
 
 public static Connection getConnection() {
         try {
-            Class.forName(driverName);
+            Class.forName("com.mysql.cj.jdbc.Driver");
             try {
-                con = DriverManager.getConnection(urlstring, username, password);
-                System.out.println("connected to the database");
+               Connection  con = DriverManager.getConnection(url, user, password);
+               if(con!=null){
+            System.out.println("connected to the database");
+
+               }
+              
+               else{
+               System.out.println("failed to connect to the database");
+
+               }
+               
             } catch (SQLException ex) {
                 System.out.println("Failed to create the database connection."); 
             }
@@ -34,14 +43,12 @@ public static Connection getConnection() {
         }
         return con;
     }
-
-
-
-
-
-
-
-
+    
+      
+    
+    
+    
+    
 
 }
 
