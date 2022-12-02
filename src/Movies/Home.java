@@ -27,12 +27,15 @@ public class Home extends javax.swing.JFrame  {
         Connection con;
         Statement st;
         ResultSet rs;
-        
+      
      
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
              con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectjava", "root", "");
+             if(con!=null){
+                 System.out.println("connected to the database");
+             }
             st = con.createStatement();
             rs = st.executeQuery("SELECT * FROM movies");
             rs.next();
