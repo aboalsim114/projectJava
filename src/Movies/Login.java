@@ -5,19 +5,21 @@
 package Movies;
 
 import javax.swing.JOptionPane;
-
+import java.sql.*;
 /**
  *
  * @author yutri
  */
 public class Login extends javax.swing.JFrame {
 
+    
+
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
-    
+        
     }
 
     /**
@@ -42,13 +44,13 @@ public class Login extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         connectButton = new javax.swing.JButton();
         connectedMsg = new javax.swing.JLabel();
+        registerBtn = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Username");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login ");
-        setMaximumSize(new java.awt.Dimension(2147483647, 400));
         setMinimumSize(new java.awt.Dimension(0, 400));
         setResizable(false);
 
@@ -82,7 +84,7 @@ public class Login extends javax.swing.JFrame {
         CloseLogin.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         CloseLogin.setForeground(new java.awt.Color(204, 0, 51));
         CloseLogin.setText("X");
-        CloseLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        CloseLogin.setBorder(null);
         CloseLogin.setBorderPainted(false);
         CloseLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         CloseLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +98,7 @@ public class Login extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(CloseLogin)
+                .addComponent(CloseLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -177,6 +179,17 @@ public class Login extends javax.swing.JFrame {
         connectedMsg.setForeground(new java.awt.Color(0, 204, 51));
         connectedMsg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        registerBtn.setBackground(new java.awt.Color(0, 204, 255));
+        registerBtn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerBtn.setForeground(new java.awt.Color(255, 255, 255));
+        registerBtn.setText("Create Account now");
+        registerBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -186,18 +199,21 @@ public class Login extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(connectButton, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                    .addComponent(connectedMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(connectedMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(connectedMsg)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(connectButton)
-                .addGap(55, 55, 55))
+                .addGap(24, 24, 24)
+                .addComponent(registerBtn)
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -212,6 +228,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
@@ -225,9 +242,16 @@ public class Login extends javax.swing.JFrame {
             return;
         }
         else{
-            JOptionPane.showMessageDialog(null, String.format("username : %s , password : %s",getUsername(),getPassword()));
-            connectedMsg.setText("Welcome "+ getUsername());
+        
+            ConnectLogin();
         }
+        
+        
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_connectButtonActionPerformed
 
@@ -237,6 +261,13 @@ public class Login extends javax.swing.JFrame {
         welcome.show();
         dispose();
     }//GEN-LAST:event_CloseLoginActionPerformed
+
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        // TODO add your handling code here:
+        Register register = new Register();
+        register.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_registerBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,6 +317,53 @@ public class Login extends javax.swing.JFrame {
     }
     
     
+    
+    
+    public void ConnectLogin(){
+         try{
+           
+            String databaseURL = "jdbc:mysql://localhost:3306/projectjava";
+            Connection con = DriverManager.getConnection(databaseURL, "root", "");
+            String selectQuery = "select * from members where username='"+getUsername()+"' and password='"+getPassword()+"'";
+            
+            Statement stat=con.createStatement();    
+            ResultSet rs=stat.executeQuery(selectQuery);
+            if(rs.next()){
+                String role = rs.getString("role");
+                
+                // if the role of the user is admin redirect him to dashbord Admin
+                if(role.equals("Admin")){
+                 dispose();
+               Admin admin = new Admin();
+                JOptionPane.showMessageDialog(null,"Welcome " + getUsername());
+               admin.setVisible(true);
+                }
+                
+                // if the role is user redirect him to Film Pages
+                if(role.equals("user")){
+               
+                    JOptionPane.showMessageDialog(null, "connected Successfuly");
+                    Home home = new Home();
+                    home.setVisible(true);
+                    dispose();
+                     
+                }
+               
+                
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Somthing is invalid  ");
+                
+            }
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseLogin;
     private javax.swing.JButton connectButton;
@@ -299,6 +377,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField password;
+    private javax.swing.JButton registerBtn;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

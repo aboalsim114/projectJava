@@ -28,7 +28,7 @@ public class Home extends javax.swing.JFrame  {
         Statement st;
         ResultSet rs;
       
-     
+
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -59,7 +59,7 @@ public class Home extends javax.swing.JFrame  {
         
         
         
-        
+      
         
       
     }
@@ -93,7 +93,6 @@ public class Home extends javax.swing.JFrame  {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         ticketNumber = new javax.swing.JTextField();
-        LoginButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -175,17 +174,6 @@ public class Home extends javax.swing.JFrame  {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Number Of the tickets");
 
-        LoginButton.setBackground(new java.awt.Color(0, 153, 255));
-        LoginButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        LoginButton.setForeground(new java.awt.Color(255, 255, 255));
-        LoginButton.setText("Login ");
-        LoginButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginButtonActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Name : ");
 
         jLabel7.setText("Genre : ");
@@ -220,23 +208,16 @@ public class Home extends javax.swing.JFrame  {
                         .addContainerGap()
                         .addComponent(jSeparator1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(ticketNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(ticketNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Film2)
-                                    .addComponent(Film1)
-                                    .addComponent(Film3)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(289, 289, 289)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(Film2)
+                            .addComponent(Film1)
+                            .addComponent(Film3))
+                        .addGap(0, 411, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,6 +267,10 @@ public class Home extends javax.swing.JFrame  {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(230, 230, 230))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(327, 327, 327)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,14 +309,13 @@ public class Home extends javax.swing.JFrame  {
                 .addComponent(Film2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Film3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LoginButton)
-                    .addComponent(jButton1))
-                .addGap(30, 30, 30))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Film3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Film3ActionPerformed
@@ -365,14 +349,6 @@ public class Home extends javax.swing.JFrame  {
        
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        // TODO add your handling code here:
-        Login login = new Login();
-        login.show(); // display login window
-        dispose(); // close this window
-            
-    }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void Film1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Film1ActionPerformed
         // TODO add your handling code here:
@@ -447,7 +423,6 @@ public class Home extends javax.swing.JFrame  {
     private javax.swing.JRadioButton Film3;
     private javax.swing.JLabel Film3Genre;
     private javax.swing.JLabel Film3NameValue;
-    private javax.swing.JButton LoginButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
