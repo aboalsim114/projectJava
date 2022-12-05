@@ -162,10 +162,16 @@ public class Register extends javax.swing.JFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
         int st;//status
-        String usernameField = username.getText() ;
+        String usernameField = username.getText().toLowerCase();
         String passwordField = String.valueOf(password.getPassword());
         if(usernameField.isEmpty() || passwordField.isEmpty()){
             JOptionPane.showMessageDialog(null, "Please enter yours informations ");
+            return;
+        }
+        
+        
+        if(usernameField.equals("admin")){
+            JOptionPane.showMessageDialog(null, "you cant create account with admin username try another");
             return;
         }
             try{

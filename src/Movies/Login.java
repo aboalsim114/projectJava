@@ -164,7 +164,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        connectButton.setBackground(new java.awt.Color(0, 153, 255));
+        connectButton.setBackground(new java.awt.Color(0, 255, 255));
         connectButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         connectButton.setForeground(new java.awt.Color(255, 255, 255));
         connectButton.setText("Connect");
@@ -332,7 +332,7 @@ public class Login extends javax.swing.JFrame {
                 String role = rs.getString("role");
                 
                 // if the role of the user is admin redirect him to dashbord Admin
-                if(role.equals("Admin")){
+                if(role.equals("admin")){
                  dispose();
                Admin admin = new Admin();
                 JOptionPane.showMessageDialog(null,"Welcome " + getUsername());
@@ -341,7 +341,7 @@ public class Login extends javax.swing.JFrame {
                 
                 // if the role is user redirect him to Film Pages
                 if(role.equals("user")){
-               
+                    
                     JOptionPane.showMessageDialog(null, "connected Successfuly");
                     Home home = new Home();
                     home.setVisible(true);
