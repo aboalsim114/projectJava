@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Movies;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,14 +14,14 @@ import java.sql.*;
  * @author yutri
  */
 public class Register extends javax.swing.JFrame {
-
+      
     /**
      * Creates new form Register
      */
     public Register() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -229,18 +228,6 @@ public class Register extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
-    
- 
-    
-    
-    
-    
-    
-    
-    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

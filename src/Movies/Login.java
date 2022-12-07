@@ -11,14 +11,19 @@ import java.sql.*;
  * @author yutri
  */
 public class Login extends javax.swing.JFrame {
-
+    
+      
     
 
     /**
      * Creates new form Login
      */
+       
+ 
+       
     public Login() {
         initComponents();
+      
         
     }
 
@@ -343,8 +348,10 @@ public class Login extends javax.swing.JFrame {
                 if(role.equals("user")){
                     
                     JOptionPane.showMessageDialog(null, "connected Successfuly");
-                    Home home = new Home();
-                    home.setVisible(true);
+                    
+                    Movies movies = new Movies();
+                    movies.setVisible(true);
+                  
                     dispose();
                      
                 }
@@ -362,7 +369,7 @@ public class Login extends javax.swing.JFrame {
     }
     
     
-    
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseLogin;
