@@ -4,6 +4,7 @@
  */
 package Movies;
 
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import java.sql.*;
 /**
@@ -23,7 +24,7 @@ public class Login extends javax.swing.JFrame {
        
     public Login() {
         initComponents();
-      
+        SetIcon();
         
     }
 
@@ -76,12 +77,16 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Username");
 
         username.setBackground(new java.awt.Color(255, 255, 255));
+        username.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        username.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Password");
 
         password.setBackground(new java.awt.Color(255, 255, 255));
+        password.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        password.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 255));
 
@@ -92,6 +97,7 @@ public class Login extends javax.swing.JFrame {
         CloseLogin.setBorder(null);
         CloseLogin.setBorderPainted(false);
         CloseLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CloseLogin.setFocusPainted(false);
         CloseLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CloseLoginActionPerformed(evt);
@@ -368,6 +374,9 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
+       private void SetIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../Images/icon.png")));
+    }
     
 
     

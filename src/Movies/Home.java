@@ -44,15 +44,17 @@ public class Home extends javax.swing.JFrame  {
             Film1NameValue.setText(rs.getString("title"));
             Film1.setText(rs.getString("title")); // button radio select 
             Film1Genre.setText(rs.getString("genre"));
+            Film1Date.setText(rs.getString("date"));
             rs.next();
             Film2NameValue.setText(rs.getString("title"));
             Film2.setText(rs.getString("title")); // button radio select 
              Film2Genre.setText(rs.getString("genre"));
+             Film2Date.setText(rs.getString("date"));
             rs.next();
             Film3NameValue.setText(rs.getString("title"));
             Film3.setText(rs.getString("title")); // button radio select 
             Film3Genre.setText(rs.getString("genre"));
-            
+            Film3Date.setText(rs.getString("date"));
         }catch (ClassNotFoundException ex) {
             System.out.println("Driver not found."); 
         } catch (SQLException ex) {
@@ -107,6 +109,12 @@ public class Home extends javax.swing.JFrame  {
         Film1Genre = new javax.swing.JLabel();
         Film2Genre = new javax.swing.JLabel();
         Film3Genre = new javax.swing.JLabel();
+        Film1Date = new javax.swing.JLabel();
+        Film2Date = new javax.swing.JLabel();
+        Film3Date = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Movies Ticket Booking");
@@ -115,16 +123,16 @@ public class Home extends javax.swing.JFrame  {
         setMinimumSize(new java.awt.Dimension(900, 700));
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Avengers.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lion.jpg"))); // NOI18N
         jLabel1.setText("Film2");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/62765745-batman_234x249.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lion.jpg"))); // NOI18N
         jLabel2.setText("Film3");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/spiderman_234x249.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lion.jpg"))); // NOI18N
         jLabel3.setText("Film1");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setMaximumSize(new java.awt.Dimension(1957, 1444));
@@ -146,6 +154,7 @@ public class Home extends javax.swing.JFrame  {
 
         buttonGroup1.add(Film2);
         Film2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Film2.setSelected(true);
         Film2.setText("Film2");
         Film2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,29 +185,59 @@ public class Home extends javax.swing.JFrame  {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Number Of the tickets");
 
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Name : ");
 
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Genre : ");
 
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Name : ");
 
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Genre : ");
 
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Name :");
 
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Genre :");
 
+        Film1NameValue.setForeground(new java.awt.Color(0, 0, 0));
         Film1NameValue.setText("film1");
 
+        Film2NameValue.setForeground(new java.awt.Color(0, 0, 0));
         Film2NameValue.setText("jLabel12");
 
+        Film3NameValue.setForeground(new java.awt.Color(0, 0, 0));
         Film3NameValue.setText("jLabel12");
 
+        Film1Genre.setForeground(new java.awt.Color(0, 0, 0));
         Film1Genre.setText("jLabel12");
 
+        Film2Genre.setForeground(new java.awt.Color(0, 0, 0));
         Film2Genre.setText("jLabel13");
 
+        Film3Genre.setForeground(new java.awt.Color(0, 0, 0));
         Film3Genre.setText("jLabel14");
+
+        Film1Date.setForeground(new java.awt.Color(0, 0, 0));
+        Film1Date.setText("jLabel14");
+
+        Film2Date.setForeground(new java.awt.Color(0, 0, 0));
+        Film2Date.setText("jLabel6");
+
+        Film3Date.setForeground(new java.awt.Color(0, 0, 0));
+        Film3Date.setText("jLabel6");
+
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Date :");
+
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel19.setText("Date :");
+
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Date");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,16 +269,21 @@ public class Home extends javax.swing.JFrame  {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(121, 121, 121)
                                 .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Film1NameValue))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addGap(118, 118, 118)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel12))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Film1Genre)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Film1Date)
+                                    .addComponent(Film1Genre))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -247,9 +291,13 @@ public class Home extends javax.swing.JFrame  {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Film2NameValue))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel16))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Film2Genre)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Film2Date)
+                                    .addComponent(Film2Genre))))
                         .addGap(116, 116, 116)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,9 +308,13 @@ public class Home extends javax.swing.JFrame  {
                                 .addGap(18, 18, 18)
                                 .addComponent(Film3NameValue))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel19))
                                 .addGap(18, 18, 18)
-                                .addComponent(Film3Genre)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Film3Date)
+                                    .addComponent(Film3Genre))))
                         .addGap(60, 60, 60)))
                 .addGap(51, 51, 51))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -298,7 +350,17 @@ public class Home extends javax.swing.JFrame  {
                     .addComponent(Film1Genre)
                     .addComponent(Film2Genre)
                     .addComponent(Film3Genre))
-                .addGap(77, 77, 77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(Film2Date)
+                        .addComponent(Film1Date)
+                        .addComponent(jLabel12))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19)
+                        .addComponent(Film3Date)))
+                .addGap(49, 49, 49)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -346,8 +408,13 @@ public class Home extends javax.swing.JFrame  {
         Film2.setActionCommand("Film2");
         Film3.setActionCommand("Film3");
         String FilmSelected = buttonGroup1.getSelection().getActionCommand(); // film selected value
-        JOptionPane.showMessageDialog(this,String.format("You bought %s Tickets for the film :  %s", NumberTicketValue,FilmSelected));
-        
+        String info[]=new String[2];
+        info[0]= NumberTicketValue;
+        info[1]=FilmSelected;
+        Bill.main(info);
+        Bill bill = new Bill();
+        bill.setVisible(true);
+        dispose();
        
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -417,12 +484,15 @@ public class Home extends javax.swing.JFrame  {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Film1;
+    private javax.swing.JLabel Film1Date;
     private javax.swing.JLabel Film1Genre;
     private javax.swing.JLabel Film1NameValue;
     private javax.swing.JRadioButton Film2;
+    private javax.swing.JLabel Film2Date;
     private javax.swing.JLabel Film2Genre;
     private javax.swing.JLabel Film2NameValue;
     private javax.swing.JRadioButton Film3;
+    private javax.swing.JLabel Film3Date;
     private javax.swing.JLabel Film3Genre;
     private javax.swing.JLabel Film3NameValue;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -431,6 +501,9 @@ public class Home extends javax.swing.JFrame  {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -5,6 +5,7 @@
 
 package Movies;
 
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,6 +29,7 @@ public class MoviesManager extends javax.swing.JFrame {
     public MoviesManager() {
         initComponents();
         getMovies();
+        SetIcon();
     }
 
     /** This method is called from within the constructor to
@@ -418,6 +420,9 @@ public class MoviesManager extends javax.swing.JFrame {
     
     
     
+       private void SetIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../Images/icon.png")));
+    }
     
     
     

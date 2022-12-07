@@ -4,6 +4,7 @@
  */
 package Movies;
 
+import java.awt.Toolkit;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -23,7 +24,7 @@ public class Movies extends javax.swing.JFrame {
     public Movies() {
         initComponents();
         getFilms();
-        
+        SetIcon();
         
         
         
@@ -64,13 +65,13 @@ public class Movies extends javax.swing.JFrame {
         Film2Date = new javax.swing.JLabel();
         Film3Date = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        numberTicket = new javax.swing.JTextField();
+        ticketNumber = new javax.swing.JTextField();
         Film1 = new javax.swing.JRadioButton();
         Film2 = new javax.swing.JRadioButton();
         Film3 = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        discountYes = new javax.swing.JRadioButton();
+        discountNo = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
@@ -80,22 +81,22 @@ public class Movies extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/spiderman_234x249.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lion.jpg"))); // NOI18N
         jLabel3.setText("Film1");
         jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel3.setMaximumSize(new java.awt.Dimension(1957, 1444));
         jLabel3.setMinimumSize(new java.awt.Dimension(1957, 1444));
         jLabel3.setPreferredSize(new java.awt.Dimension(1957, 1444));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Avengers.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lion.jpg"))); // NOI18N
         jLabel1.setText("Film2");
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/62765745-batman_234x249.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/lion.jpg"))); // NOI18N
         jLabel2.setText("Film3");
         jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -262,8 +263,8 @@ public class Movies extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Number of ticket");
 
-        numberTicket.setBackground(new java.awt.Color(255, 255, 255));
-        numberTicket.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ticketNumber.setBackground(new java.awt.Color(255, 255, 255));
+        ticketNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         buttonGroup1.add(Film1);
         Film1.setSelected(true);
@@ -276,17 +277,18 @@ public class Movies extends javax.swing.JFrame {
         Film3.setText("jRadioButton3");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("do you have discount code ?");
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("do you have discount student ?");
 
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("yes");
+        buttonGroup2.add(discountYes);
+        discountYes.setText("yes");
 
-        buttonGroup2.add(jRadioButton5);
-        jRadioButton5.setSelected(true);
-        jRadioButton5.setText("no");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(discountNo);
+        discountNo.setSelected(true);
+        discountNo.setText("no");
+        discountNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                discountNoActionPerformed(evt);
             }
         });
 
@@ -327,16 +329,16 @@ public class Movies extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(36, 36, 36)
-                                .addComponent(numberTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(ticketNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(Film2))
                         .addGap(135, 135, 135)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(33, 33, 33)
-                                .addComponent(jRadioButton4)
+                                .addComponent(discountYes)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton5))
+                                .addComponent(discountNo))
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -349,10 +351,10 @@ public class Movies extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(numberTicket)
+                            .addComponent(ticketNumber)
                             .addComponent(jLabel5)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton5))
+                            .addComponent(discountYes)
+                            .addComponent(discountNo))
                         .addGap(1, 1, 1))
                     .addComponent(jLabel4))
                 .addGap(27, 27, 27)
@@ -391,19 +393,25 @@ public class Movies extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void discountNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_discountNoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-           String  NumberTicketValue = numberTicket.getText(); // ticket number 
+           String  NumberTicketValue = ticketNumber.getText(); // ticket number 
 
         if(NumberTicketValue.isEmpty()){
             JOptionPane.showMessageDialog(null, "please enter the nomber of tickets ");
             return;
         }
+        
+        
+        // discount select
+        discountYes.setActionCommand("yes");
+        discountNo.setActionCommand("no");
+        String DiscountValue = buttonGroup2.getSelection().getActionCommand(); // Discount value yes or no 
         
  
         // Names of films 
@@ -411,7 +419,13 @@ public class Movies extends javax.swing.JFrame {
         Film2.setActionCommand("Film2");
         Film3.setActionCommand("Film3");
         String FilmSelected = buttonGroup1.getSelection().getActionCommand(); // film selected value
-        JOptionPane.showMessageDialog(this,String.format("You bought %s Tickets for the film :  %s", NumberTicketValue,FilmSelected));
+        String info[]=new String[2];
+        info[0]= NumberTicketValue;
+        info[1]=FilmSelected;
+        Bill.main(info);
+        Bill bill = new Bill();
+        bill.setVisible(true);
+        dispose();
         
   
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -490,6 +504,12 @@ public class Movies extends javax.swing.JFrame {
     
     
     
+       private void SetIcon(){
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("../Images/icon.png")));
+    }
+    
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Film1;
@@ -506,6 +526,8 @@ public class Movies extends javax.swing.JFrame {
     private javax.swing.JLabel Film3NameValue;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JRadioButton discountNo;
+    private javax.swing.JRadioButton discountYes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
@@ -524,8 +546,6 @@ public class Movies extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JTextField numberTicket;
+    private javax.swing.JTextField ticketNumber;
     // End of variables declaration//GEN-END:variables
 }
